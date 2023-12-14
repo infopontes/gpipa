@@ -1,6 +1,10 @@
 from selenium.webdriver import Firefox
 from selenium.webdriver.common.by import By
 
+from gpipa.settings import Settings
+
+dados_login = Settings()
+
 browser = Firefox()
 
 # =================================================================
@@ -18,8 +22,8 @@ email_element = browser.find_element(By.XPATH, login_path)
 password_element = browser.find_element(By.XPATH, password_path)
 botao_element = browser.find_element(By.XPATH, botao_login_path)
 
-email_element.send_keys()
-password_element.send_keys()
+email_element.send_keys(dados_login.LOGIN)
+password_element.send_keys(dados_login.PASSWORD)
 
 botao_element.click()
 
@@ -41,11 +45,6 @@ browser.get(url_beneficiarios)
 botao_atualizar_varios_path = '//*[@id="form:j_id_6r:j_id_76"]'
 botao_atualizar_varios_element = browser.find_element(By.XPATH, botao_atualizar_varios_path)
 botao_atualizar_varios_element.click()
-
-# botao_menu_beneficiarios_path = '//div[@id="menuForm:j_id_h"]'
-# botao_menu_beneficiarios_element = browser.find_element(By.XPATH, botao_menu_beneficiarios_path)
-
-# botao_menu_beneficiarios_element.click()
 
 
 

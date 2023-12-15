@@ -36,6 +36,6 @@ extend-exclude = '(migrations/)'
 [tool.taskipy.tasks]
 lint = 'ruff . && blue --check . --diff'
 format = 'blue .  && isort .'
-run = 'python gpipa\main.py'
+run = 'python gpipa/main.py'
 
 

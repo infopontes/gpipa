@@ -1,5 +1,9 @@
 from selenium.webdriver import Firefox
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select 
+
+
+from time import sleep
 
 from gpipa.settings import Settings
 
@@ -13,6 +17,8 @@ browser = Firefox()
 
 url_login = "https://www.gpipabrasil.com.br/login.xhtml"
 browser.get(url_login)
+
+sleep(10)
 
 login_path = '//*[@id="form:userName"]'
 password_path = '//*[@id="form:password"]'
@@ -30,10 +36,10 @@ botao_element.click()
 # =================================================================
 # TELA DE INICIAL
 # =================================================================
-botao_fechar_tela_inicial_path = '//*[@id="form:closeBt"]'
-botao_fechar_tela_inicial_element = browser.find_element(By.XPATH, botao_fechar_tela_inicial_path)
+# botao_fechar_tela_inicial_path = '//*[@id="form:closeBt"]'
+# botao_fechar_tela_inicial_element = browser.find_element(By.XPATH, botao_fechar_tela_inicial_path)
 
-botao_fechar_tela_inicial_element.click()
+# botao_fechar_tela_inicial_element.click()
 
 # =================================================================
 # TELA DE BENEFICIÁRIOS
@@ -46,5 +52,15 @@ botao_atualizar_varios_path = '//*[@id="form:j_id_6r:j_id_76"]'
 botao_atualizar_varios_element = browser.find_element(By.XPATH, botao_atualizar_varios_path)
 botao_atualizar_varios_element.click()
 
-
-
+sleep(1)
+select_element_estado = browser.find_element(By.XPATH, '//div[10]/div[2]/span/span[2]/div/div/div[3]/span')
+select_element_estado.click()
+sleep(1)
+select_element_piaui = browser.find_element(By.XPATH, '//div[11]/div[2]/ul/li[19]')
+select_element_piaui.click()
+sleep(1)
+select_element_municipio = browser.find_element(By.XPATH, '//div[10]/div[2]/span/span[2]/div[2]/div/div[3]/span')
+select_element_municipio.click()
+sleep(1)
+select_element_acaua = browser.find_element(By.XPATH, '//div[16]/div[2]/ul/li[2]')
+select_element_acaua.click()
